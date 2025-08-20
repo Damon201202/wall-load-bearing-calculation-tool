@@ -32,6 +32,15 @@ This conservative assumption, consistent with Eurocode, avoids underestimation a
 
 The calculation is based on multiplying the material’s surface load by the wall’s thickness and height, while applying **Eurocode 1 load factors**.
 
+Depending on the arrangement of supports and the stiffness of the elements, a portion of the variable loads may be transferred to the wall. This should be checked on a case‑by‑case basis according to the load path principles defined in Eurocode 1. Check the images to be sure.
+
+## Safe for calculation
+![Example of load path for walls](images/example-descente-de-charge-des-murs.jpg)
+
+## In this case, contact the design bureau
+![Example of load path for walls](images/example-descente-de-charge-des-murs-dalle-plancher.jpg)
+
+
 ---
 
 ## 📐 Special Cases
