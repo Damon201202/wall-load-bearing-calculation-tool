@@ -1,0 +1,89 @@
+/* Base container styling */
+.calcul-charge-llinteau {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* Column layouts */
+.calcul-charge-llinteau_columns {
+    padding: 0.25rem 0.5rem;
+    box-sizing: border-box;
+}
+
+/* Column widths for desktop */
+.calcul-charge-llinteau_1 {
+    flex: 2;
+    min-width: 160px;
+}
+.calcul-charge-llinteau_2 {
+    flex: 1;
+    min-width: 80px;
+    text-align: center;
+}
+.calcul-charge-llinteau_3 {
+    flex: 1;
+    min-width: 100px;
+    text-align: right;
+}
+
+/* Text appearance */
+.calcul-charge-llinteau_text {
+    margin: 0;
+    color: #24292e; /* GitHub dark text */
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+/* Inputs & selects */
+.calcul-charge-llinteau_value,
+.calcul-charge-llinteau_select_hauteur {
+    width: 100%;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.9rem;
+    border: 1px solid #d0d7de;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #24292e;
+}
+
+.calcul-charge-llinteau_value:focus,
+.calcul-charge-llinteau_select_hauteur:focus {
+    border-color: #0969da;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.15);
+}
+
+/* Numeric results */
+.calcul-charge-llinteau_total_g,
+.calcul-charge-llinteau_coeff,
+.total_g_avec_coeff {
+    font-weight: 600;
+    color: #0969da;
+}
+
+/* Smaller explanatory text */
+.calcul-charge-llinteau_text sub {
+    color: #57606a;
+    font-size: 0.8rem;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 600px) {
+    .calcul-charge-llinteau {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .calcul-charge-llinteau_columns {
+        width: 100%;
+        text-align: left;
+        padding: 0.25rem 0;
+    }
+}

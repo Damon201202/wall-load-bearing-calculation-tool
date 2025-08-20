@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Wall Load-Bearing Calculation Tool</title>
+  <link rel="stylesheet" href="styles.css"> <!-- ton fichier CSS -->
+</head>
+<body>
+
+<div class="h2">
+    <div class="h2-title">
+      <h1>
+        <span class="h2-title_summary">Structural Class Calculation:</span>
+        <span class="h2-title_text">Project Parameters</span>
+      </h1>
+    </div>
+  </div>
+
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_inscriptions">Material</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_inscriptions">Surface Weight G (kN/m²/cm)</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3 calcul-charge-llinteau_select_eps">
+        <p class="calcul-charge-llinteau_inscriptions">Thickness</p>
+        <!-- Selector to choose the unit of thickness -->
+        <select class="calcul-charge-llinteau_select calcul-charge-llinteau_eps">
+            <option value="cm" selected>cm</option>
+            <option value="m">m</option>
+        </select>
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Unreinforced concrete</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_beton_non_arme">0.23</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_unreinforced_concrete" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Reinforced concrete</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_beton_arme">0.25</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_reinforced_concrete" value="0">
+    </div>
+</div>
+    
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Lightweight concrete</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_beton_leger">0.10</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_lightweight_concrete" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Aerated concrete</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_beton_cellulaire">0.05</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_aerated_concrete" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Solid brick</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_brique_pleine">0.17</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_solid_brick" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Hollow brick</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_brique_creuse">0.10</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_hollow_brick" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Calcium silicate brick</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_brique_silico_calcaire">0.16</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_calcium_silicate_brick" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Hollow concrete block</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_bloc_beton_creux">0.14</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_hollow_concrete_block" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Solid concrete block</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_bloc_beton_plein">0.22</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_solid_concrete_block" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Limestone</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_pierre_calcaire">0.22</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_limestone" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Granite</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_granite">0.26</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_granite" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Sandstone</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_gres">0.24</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_sandstone" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Marble</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_marbre">0.27</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_marble" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Solid wood (oak, beech)</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_bois_massif">0.08</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_solid_wood_oak_beech" value="0">
+    </div>
+</div>
+    
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Solid wood (fir, pine)</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_bois_massif_sapin_pin">0.05</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_solid_wood_fir_pine" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">OSB / Plywood panels</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_panneaux_osb_contreplaque">0.07</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_osb_plywood_panels" value="0">
+    </div>
+</div>
+   
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Cement render</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_enduit_ciment">0.19</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_cement_render" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Plaster render</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_enduit_platre">0.10</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_plaster_render" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Plaster (tile, board)</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_platre_carreau_plaque">0.08</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_plaster_tile_board" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Raw earth (bricks, rammed earth)</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_terre_crue">0.16</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_raw_earth" value="0">
+    </div>
+</div>
+    
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Compressed straw</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_paille_compressee">0.01</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_compressed_straw" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Rock wool insulation</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_isolant_laine_de_roche">0.002</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_rock_wool_insulation" value="0">
+    </div>
+</div>
+    
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Glass wool insulation</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_isolant_laine_de_verre">0.002</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_glass_wool_insulation" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Expanded polystyrene (EPS)</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_polystyrene_expanse">0.002</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_expanded_polystyrene_eps" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Extruded polystyrene (XPS)</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_polystyrene_extrude">0.003</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_extruded_polystyrene_xps" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Polyurethane (PU)</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_polyurethane">0.003</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_polyurethane" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Expanded cork</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_liege_expanse">0.005</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_expanded_cork" value="0">
+    </div>
+</div>
+
+<!-- Example row for a material -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text">Wood fibre</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_fibre_de_bois">0.005</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="thickness_wood_fibre" value="0">
+    </div>
+</div>
+
+<!-- Height -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1 calcul-charge-llinteau_select">
+        <p class="calcul-charge-llinteau_text"><span class="bold">Height :</span></p>
+        <select class=" calcul-charge-llinteau_select_hauteur">
+            <option value="m" selected>m</option>
+            <option value="cm">cm</option>
+        </select>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text"></p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <input type="number" class="calcul-charge-llinteau_value" id="hauteur" value="0">
+    </div>
+</div>
+
+<!-- Total G -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text"><span class="bold">Permanent load G (kN/m) :</span></p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text" id="total"></p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_total_g" id="total_g">0</p>
+    </div>
+</div>
+
+<!-- Load factor -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text"><span class="bold">Load factor (1.35 for G):</span><br><sub>Applied to permanent loads (G) for ULS</sub></p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text"></p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_3">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_coeff">1.35</p>
+    </div>
+</div>
+
+<!-- Total G with factor -->
+<div class="calcul-charge-llinteau">
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_1">
+        <p class="calcul-charge-llinteau_text"><span class="bold">Total load (kN/m) after factoring:</span><br>Total load = 1.35G + 1.5Q;<br>(For a wall, Q = 0).</p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text" id="total_avec_coeff"></p>
+    </div>
+    <div class="calcul-charge-llinteau_columns calcul-charge-llinteau_2">
+        <p class="calcul-charge-llinteau_text calcul-charge-llinteau_total_g total_g_avec_coeff" id="total_g_avec_coeff">0</p>
+    </div>
+</div>
+
+
+<script src="wall-load-bearing.js" defer></script>
+
+</body>
+</html>
