@@ -48,7 +48,10 @@ Depending on the arrangement of supports and the stiffness of the elements, a po
 - **Window or door lintels (reinforced concrete):**  
   - Measure the wall height between the lintel and the upper beam.  
   - Enter the material and dimensions.  
-  - If you are also using our [Lintel Reinforcement Calculator](https://beton-guide.com/calcul/descente-charges-murs.html), you do **not** need to add the lintel’s own weight—it is already included.  
+  - If you are also using our [Lintel Reinforcement Calculator](https://beton-guide.com/calcul/descente-charges-murs.html), you do **not** need to add the lintel’s own weight—it is already included.
+ 
+![Example 1](images/example-descente-de-charge-linteau-de-fenetre.jpg) 
+![Example 2](images/example-descente-de-charge-linteau-de-porte.jpg)
 
 - **Variable loads (Q):**  
   Unlike slabs, walls do not directly carry variable loads.  
